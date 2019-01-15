@@ -3,7 +3,7 @@ import SettingInputs from './SettingInputs';
 
 const addSettings = (props) =>{
     return(
-        <SettingInputs details={props.details}/>
+        <SettingInputs addDetail={props.addDetail} editDetail={props.editDetail} details={props.details}/>
     );
 }
     

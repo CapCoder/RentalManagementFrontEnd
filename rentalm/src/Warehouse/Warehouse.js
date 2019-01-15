@@ -4,11 +4,19 @@ import SettingsPanel from '../SettingsPanel/SettingsPanel';
 
 class Warehouse extends Component{
     state={
-        houseDetails:["more things", "more other things", "another on yet"]
+        houseDetails:[]
     }
 
-    editDetailHandler = () =>{
+    editDetailHandler = (e) =>{
+        let newState = [...this.state.houseDetails];
+        newState[e.target.name] = [e.target.value];
+        this.setState({houseDetails:newState});
+        console.log(this.state.houseDetails);
+    }
 
+    addDetailHandler = () =>{
+        let newState = [...this.state.houseDetails, ""];
+        this.setState({houseDetails:newState});
     }
 
     render(){
@@ -16,7 +24,7 @@ class Warehouse extends Component{
         return(
             <>
                 <ViewPort cardDetails={this.state.houseDetails}/>
-                <SettingsPanel details={this.state.houseDetails}/>
+                <SettingsPanel addDetail={this.addDetailHandler} editDetail={this.editDetailHandler} details={this.state.houseDetails}/>
             </>
         );
     }

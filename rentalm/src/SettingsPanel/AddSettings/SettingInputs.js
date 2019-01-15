@@ -1,10 +1,11 @@
 import React from 'react';
 import InputBox from './InputBox';
+import {Button} from 'reactstrap';
 
 const inputList = (props) =>{
     const inputs = props.details.map(detail =>{
         return(
-            <InputBox index={props.details.indexOf(detail)} startingText={detail}/>
+            <InputBox editDetail={props.editDetail} index={props.details.indexOf(detail)} startingText={detail}/>
         );
         
     });
@@ -12,6 +13,7 @@ const inputList = (props) =>{
     return(
         <>
             {inputs}
+            <Button onClick={props.addDetail}>Add Detail</Button>
         </>
     )
 }
