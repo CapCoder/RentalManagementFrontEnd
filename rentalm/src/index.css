@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.cards {
+  width: 18rem;
+  margin: auto;
+}
+
+.cardViewport {
+  border-style: inset;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.settingsViewport {
+  border-style: inset;
+  border-radius: 5px;
+}

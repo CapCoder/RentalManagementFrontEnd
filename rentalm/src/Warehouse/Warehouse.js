@@ -1,30 +1,38 @@
 import React, {Component} from 'react';
 import ViewPort from '../ViewPort/ViewPort';
 import SettingsPanel from '../SettingsPanel/SettingsPanel';
+import '../index.css';
 
 class Warehouse extends Component{
     state={
-        houseDetails:[]
+        homes:[
+            {
+                title:' ',
+                houseDetails: ["test1", "test2"]
+            }
+        ]   
     }
 
     editDetailHandler = (e) =>{
-        let newState = [...this.state.houseDetails];
-        newState[e.target.name] = [e.target.value];
+        let newState = [...this.state.homes];
+        console.log(e.target.name);
+        newState[0].houseDetails[e.target.name] = [e.target.value];
         this.setState({houseDetails:newState});
-        console.log(this.state.houseDetails);
     }
 
     addDetailHandler = () =>{
-        let newState = [...this.state.houseDetails, ""];
-        this.setState({houseDetails:newState});
+        let newState = [...this.state.homes[0].houseDetails, ""];
+        this.setState({newState});
     }
 
     render(){
 
         return(
             <>
-                <ViewPort cardDetails={this.state.houseDetails}/>
-                <SettingsPanel addDetail={this.addDetailHandler} editDetail={this.editDetailHandler} details={this.state.houseDetails}/>
+                <div className='cardViewport'>
+                    <ViewPort cardDetails={this.state.homes}/>
+                </div>
+                <SettingsPanel addDetail={this.addDetailHandler} editDetail={this.editDetailHandler} details={this.state.homes}/>
             </>
         );
     }

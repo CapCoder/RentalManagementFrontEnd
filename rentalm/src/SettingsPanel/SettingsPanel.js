@@ -1,5 +1,5 @@
 import React from 'react';
-import AddSetting from './AddSettings/AddSetting';
+import AddSetting from './AddDetails/AddSetting';
 
 const settingsPanel = (props) =>(
     <AddSetting addDetail={props.addDetail} editDetail={props.editDetail} details={props.details}/>
