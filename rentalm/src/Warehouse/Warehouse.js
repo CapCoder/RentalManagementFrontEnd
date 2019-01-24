@@ -7,8 +7,16 @@ class Warehouse extends Component{
     state={
         homes:[
             {
-                title:' ',
-                houseDetails: ["test1", "test2"]
+                title:'Test 1',
+                houseDetails: ["rent1", "test1"]
+            },
+            {
+                title: 'Test 2',
+                houseDetails: ["rent2", "test2"]
+            },
+            {
+                title: 'Test 3',
+                houseDetails: ["rent3", "test3"]
             }
         ]   
     }

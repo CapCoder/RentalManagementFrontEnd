@@ -2,8 +2,9 @@ import React from 'react';
 import CardListItem from './CardListItem';
 
 
-const CardList = (props) =>{
-    const items = props.cardItems[0].houseDetails.map(it =>{
+const detailList = (props) =>{
+    console.log(props.cardItems);
+    const items = props.cardItems.map(it =>{
         return (
             <CardListItem>{it}</CardListItem>
         );
@@ -18,4 +19,4 @@ const CardList = (props) =>{
     
 }
 
-export default CardList;
+export default detailList;
