@@ -3,11 +3,12 @@ import InputBox from './InputDetailBox';
 import {Button, InputGroup, InputGroupAddon} from 'reactstrap';
 
 const inputList = (props) =>{
-    const inputs = props.details[0].houseDetails.map(detail =>{
+    
+    const inputs = props.details[props.selectedAdd].houseDetails.map((detail, index) =>{
         return(
-            <InputBox editDetail={props.editDetail} index={props.details[0].houseDetails.indexOf(detail)} startingText={detail}/>
+            // Check use of key here
+            <InputBox key={index} editDetail={props.editDetail} index={props.details[props.selectedAdd].houseDetails.indexOf(detail)} startingText={detail}/>
         );
-        
     });
 
     return(

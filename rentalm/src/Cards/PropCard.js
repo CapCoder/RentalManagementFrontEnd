@@ -10,7 +10,7 @@ const propCards = (props) =>{
     return(
         <Card className={style.join(' ')}>
             <CardTitle><CardTitleContent>{props.cardTitle}</CardTitleContent></CardTitle>
-            <CardImg top width="100%" src="../../Assets/house.jpg"/>
+            <CardImg top width="100%" src="house.jpg"/>
             <CardBody>
                 <CardList cardItems={props.cardItems}/>
             </CardBody>

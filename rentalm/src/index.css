@@ -13,16 +13,29 @@ code {
     monospace;
 }
 
-.cards {
+.cards{
   width: 18rem;
   margin: auto;
 }
 
 .cardViewport {
+  width: 100%;
   border-style: inset;
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+.cardViewport .cardList{
+  list-style-type: none;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+.cardList .cardListItem{
+  display: inline-block;
+}
+
 
 .settingsViewport {
   border-style: inset;

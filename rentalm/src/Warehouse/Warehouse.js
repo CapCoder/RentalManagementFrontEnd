@@ -7,40 +7,41 @@ class Warehouse extends Component{
     state={
         homes:[
             {
+                ID: 0,
                 title:'Test 1',
                 houseDetails: ["rent1", "test1"]
             },
             {
+                ID: 1,
                 title: 'Test 2',
                 houseDetails: ["rent2", "test2"]
-            },
-            {
-                title: 'Test 3',
-                houseDetails: ["rent3", "test3"]
             }
-        ]   
+        ],
+        selectedHome: 0
     }
 
+    
     editDetailHandler = (e) =>{
         let newState = [...this.state.homes];
-        console.log(e.target.name);
-        newState[0].houseDetails[e.target.name] = [e.target.value];
+        let selected = this.state.selectedHome;
+        newState[selected].houseDetails[e.target.name] = [e.target.value];
         this.setState({houseDetails:newState});
     }
 
     addDetailHandler = () =>{
-        let newState = [...this.state.homes[0].houseDetails, ""];
-        this.setState({newState});
+        let newState = [...this.state.homes[this.state.selectedHome].houseDetails].push('');
+        console.log(newState);
+        this.setState({homes: newState});
     }
 
     render(){
-
+        
         return(
             <>
                 <div className='cardViewport'>
                     <ViewPort cardDetails={this.state.homes}/>
                 </div>
-                <SettingsPanel addDetail={this.addDetailHandler} editDetail={this.editDetailHandler} details={this.state.homes}/>
+                <SettingsPanel selected={this.state.selectedHome} addDetail={this.addDetailHandler} editDetail={this.editDetailHandler} details={this.state.homes}/>
             </>
         );
     }

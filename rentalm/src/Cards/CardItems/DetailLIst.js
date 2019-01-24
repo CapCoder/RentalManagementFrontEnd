@@ -3,20 +3,18 @@ import CardListItem from './CardListItem';
 
 
 const detailList = (props) =>{
-    console.log(props.cardItems);
-    const items = props.cardItems.map(it =>{
+    const items = props.cardItems.map((it, index) =>{
         return (
-            <CardListItem>{it}</CardListItem>
+            // Check into the use of keys here.
+            <CardListItem key={index}>{it}</CardListItem>
         );
     });
     
-
     return(
         <ul>
             {items}
         </ul>
     );
-    
 }
 
 export default detailList;
