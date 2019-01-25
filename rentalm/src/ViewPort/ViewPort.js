@@ -5,8 +5,10 @@ import CardList from './CardsView/CardList';
 const viewPort = (props) =>{
 
     return(
-        <CardList cardDetails={props.cardDetails}/>
-        //<AddView cardItems={props.cardDetails} cardTitle={props.cardTitles}/>
+        <>
+            <CardList switch={props.switchHouse} cardDetails={props.cardDetails}/>
+            {/* <AddView cardItems={props.cardDetails} cardTitle={props.cardTitles}/> */}
+        </>
     );
 }
 

@@ -34,12 +34,16 @@ class Warehouse extends Component{
         this.setState({homes: newState});
     }
 
+    setSelectedHome = (id) =>{
+        this.setState({selectedHome: id});
+    }
+
     render(){
         
         return(
             <>
                 <div className='cardViewport'>
-                    <ViewPort cardDetails={this.state.homes}/>
+                    <ViewPort switchHouse={this.setSelectedHome} cardDetails={this.state.homes}/>
                 </div>
                 <SettingsPanel selected={this.state.selectedHome} addDetail={this.addDetailHandler} editDetail={this.editDetailHandler} details={this.state.homes}/>
             </>
