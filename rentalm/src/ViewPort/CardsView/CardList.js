@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../../Cards/PropCard';
 
 const cardList = (props) =>{
-    
+    console.log(props);
     const cards = props.cardDetails.map((home, index) =>{
         let id = home.ID;
         // Check the use of key here

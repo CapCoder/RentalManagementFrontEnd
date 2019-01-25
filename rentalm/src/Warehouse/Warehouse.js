@@ -29,9 +29,9 @@ class Warehouse extends Component{
     }
 
     addDetailHandler = () =>{
-        let newState = [...this.state.homes[this.state.selectedHome].houseDetails].push('');
-        console.log(newState);
-        this.setState({homes: newState});
+        let newState = [...this.state.homes];
+        newState[this.state.selectedHome].houseDetails.push('');
+        this.setState({houseDetails: newState});
     }
 
     setSelectedHome = (id) =>{
