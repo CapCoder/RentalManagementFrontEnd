@@ -3,11 +3,12 @@ import InputBox from './InputDetailBox';
 import {Button, InputGroup, InputGroupAddon} from 'reactstrap';
 
 const inputList = (props) =>{
-    
-    const inputs = props.details[props.selectedAdd].houseDetails.map((detail, index) =>{
+    let settings=props.selectedAdd;
+
+    const inputs = settings.details[settings.selected].houseDetails.map((detail, index) =>{
         return(
             // Check use of key here
-            <InputBox key={index} editDetail={props.editDetail} index={props.details[props.selectedAdd].houseDetails.indexOf(detail)} startingText={detail}/>
+            <InputBox key={index} editDetail={settings.editDetail} index={settings.details[settings.selected].houseDetails.indexOf(detail)} startingText={detail}/>
         );
     });
 
@@ -15,7 +16,7 @@ const inputList = (props) =>{
         <InputGroup size="sm">
             <InputGroupAddon addonType="prepend">Details</InputGroupAddon>
             {inputs}
-            <Button size="sm" onClick={props.addDetail}>Add Detail</Button>  
+            <Button size="sm" onClick={settings.addDetail}>Add Detail</Button>  
         </InputGroup>
     );
 }

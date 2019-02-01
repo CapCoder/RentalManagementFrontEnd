@@ -28,6 +28,10 @@ class Warehouse extends Component{
         this.setState({houseDetails:newState});
     }
 
+    editTitleHandler = (e) =>{
+
+    }
+
     addDetailHandler = () =>{
         let newState = [...this.state.homes];
         newState[this.state.selectedHome].houseDetails.push('');
@@ -39,13 +43,20 @@ class Warehouse extends Component{
     }
 
     render(){
-        
+        let settingsOb = {
+            selected: this.state.selectedHome,
+            addDetail: this.addDetailHandler,
+            editDetail: this.editDetailHandler,
+            details: this.state.homes
+        };
+        console.log("from warehouse" + settingsOb.details);
+
         return(
             <>
                 <div className='cardViewport'>
                     <ViewPort switchHouse={this.setSelectedHome} cardDetails={this.state.homes}/>
                 </div>
-                <SettingsPanel selected={this.state.selectedHome} addDetail={this.addDetailHandler} editDetail={this.editDetailHandler} details={this.state.homes}/>
+                <SettingsPanel properties={settingsOb} />
             </>
         );
     }
