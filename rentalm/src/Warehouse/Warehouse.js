@@ -47,9 +47,9 @@ class Warehouse extends Component{
             selected: this.state.selectedHome,
             addDetail: this.addDetailHandler,
             editDetail: this.editDetailHandler,
-            details: this.state.homes
+            details: this.state.homes,
+            editTitle: this.editTitleHandler
         };
-        console.log("from warehouse" + settingsOb.details);
 
         return(
             <>
