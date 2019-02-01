@@ -1,5 +1,4 @@
 import React from 'react';
-import InputBox from './InputDetailBox';
 import {Button, InputGroup, ListGroup, ListGroupItem, Input} from 'reactstrap';
 
 const inputList = (props) =>{
