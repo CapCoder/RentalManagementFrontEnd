@@ -7,21 +7,25 @@ const inputList = (props) =>{
     const inputs = settings.details[settings.selected].houseDetails.map((detail, index) =>{
         return(
             // Check use of key here
-            //<InputBox key={index} editDetail={settings.editDetail} index={settings.details[settings.selected].houseDetails.indexOf(detail)} startingText={detail}/>
-            
             <ListGroupItem><Input type="text" name={settings.details[settings.selected].houseDetails.indexOf(detail)} value={detail} onChange={settings.editDetail} /></ListGroupItem>
         );
     });
+    
 
     return(
-        <inputGroup size="sm">
-            <h3>Details:</h3>
-            <ListGroup>
-                {inputs}
-                <Button size="sm" onClick={settings.addDetail}>Add Detail</Button>
-            </ListGroup>
-        </inputGroup>
-        
+        <>
+            <InputGroup size="sm">
+                <h3>Title:</h3>
+                <Input type="text" value={settings.details[settings.selected].title} onChange={settings.editTitle} />
+            </InputGroup>
+            <InputGroup size="sm">
+                <h3>Details:</h3>
+                <ListGroup>
+                    {inputs}
+                    <Button size="sm" onClick={settings.addDetail}>Add Detail</Button>
+                </ListGroup>
+            </InputGroup>
+        </>
     );
 }
 

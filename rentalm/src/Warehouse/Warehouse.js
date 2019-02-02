@@ -29,7 +29,10 @@ class Warehouse extends Component{
     }
 
     editTitleHandler = (e) =>{
-
+        let newState = [...this.state.homes];
+        let selected = this.state.selectedHome;
+        newState[selected].title = e.target.value;
+        this.setState({houseDetails:newState});
     }
 
     addDetailHandler = () =>{
