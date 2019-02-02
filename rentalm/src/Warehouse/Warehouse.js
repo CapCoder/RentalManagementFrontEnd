@@ -26,6 +26,7 @@ class Warehouse extends Component{
         let selected = this.state.selectedHome;
         newState[selected].houseDetails[e.target.name] = [e.target.value];
         this.setState({houseDetails:newState});
+        console.log(this.state);
     }
 
     editTitleHandler = (e) =>{
@@ -41,6 +42,13 @@ class Warehouse extends Component{
         this.setState({houseDetails: newState});
     }
 
+    addHouseHandler = () =>{
+        let newState = [...this.state.homes];
+        newState.push({ID: (newState.length), title:"Something", houseDetails: ['Fill it out']});
+        this.setState({homes: newState});
+        
+    }
+
     setSelectedHome = (id) =>{
         this.setState({selectedHome: id});
     }
@@ -51,7 +59,8 @@ class Warehouse extends Component{
             addDetail: this.addDetailHandler,
             editDetail: this.editDetailHandler,
             details: this.state.homes,
-            editTitle: this.editTitleHandler
+            editTitle: this.editTitleHandler,
+            addHome: this.addHouseHandler
         };
 
         return(
