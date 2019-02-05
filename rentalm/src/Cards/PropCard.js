@@ -11,7 +11,7 @@ const propCards = (props) =>{
     }
 
     return(
-        <div className={'card'} style={style}>
+        <div className={'card'} style={style} onClick={(e)=> props.setSelection(props.homeID,e)}>
             <h5 className="card-title">{props.cardTitle}</h5>
             <img src="house.jpg" className="card-img-top" />
             <div className={'card-body'}>

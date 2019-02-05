@@ -57,6 +57,7 @@ class Warehouse extends Component{
     }
 
     setSelectedHome = (id) =>{
+        console.log("running selectedHome");
         this.setState({selectedHome: id});
     }
 
