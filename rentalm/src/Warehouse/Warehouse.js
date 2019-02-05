@@ -28,10 +28,10 @@ class Warehouse extends Component{
         this.setState({homes: temp});
     }
 
-    editTitleHandler = (e) =>{
-        let selected = this.state.selectedHome;
+    editTitleHandler = (index, e) =>{
         let temp = this.state.homes;
-        temp[selected].title = e.target.value;
+        console.log(index);
+        temp[index].title = e.target.value;
         this.setState({homes: temp});
     }
 

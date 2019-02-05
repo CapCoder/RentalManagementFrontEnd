@@ -11,9 +11,7 @@ const inputList = (props) =>{
         }
     }
 
-    console.log(selectedIndex);
-
-    const inputs = settings.details[settings.selected].houseDetails.map((detail, index) =>{
+    const inputs = settings.details[selectedIndex].houseDetails.map((detail, index) =>{
         
         return(
             // Check use of key here
@@ -26,7 +24,7 @@ const inputList = (props) =>{
         <>
             <InputGroup size="sm">
                 <h3>Title:</h3>
-                <Input type="text" value={settings.details[settings.selected].title} onChange={settings.editTitle} />
+                <Input type="text" value={settings.details[selectedIndex].title} onChange={(e) => settings.editTitle(selectedIndex,e)} />
             </InputGroup>
             <InputGroup size="sm">
                 <h3>Details:</h3>
