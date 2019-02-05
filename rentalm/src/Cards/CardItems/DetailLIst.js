@@ -12,7 +12,7 @@ const detailList = (props) =>{
     });
     
     return(
-        <ul>
+        <ul className="list-group list-group-flush">
             {items}
         </ul>
     );

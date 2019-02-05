@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, InputGroup, ListGroup, ListGroupItem, Input} from 'reactstrap';
+
 
 const inputList = (props) =>{
     let settings=props.selectedAdd;
@@ -15,28 +15,28 @@ const inputList = (props) =>{
         
         return(
             // Check use of key here
-            <ListGroupItem key={index}><Input type="text" name={settings.details[selectedIndex].houseDetails.indexOf(detail)} value={detail} onChange={settings.editDetail} /></ListGroupItem>
+            <li className="list-group-item" key={index}><input className="form-control" type="text" name={settings.details[selectedIndex].houseDetails.indexOf(detail)} value={detail} onChange={settings.editDetail} /></li>
         );
     });
     
 
     return(
         <>
-            <InputGroup size="sm">
+            <div className="input-group" size="sm">
                 <h3>Title:</h3>
-                <Input type="text" value={settings.details[selectedIndex].title} onChange={(e) => settings.editTitle(selectedIndex,e)} />
-            </InputGroup>
-            <InputGroup size="sm">
+                <input type="text" className="form-control" value={settings.details[selectedIndex].title} onChange={(e) => settings.editTitle(selectedIndex,e)} />
+            </div>
+            <div className="input-group" size="sm">
                 <h3>Details:</h3>
-                <ListGroup>
+                <ul className="list-group">
                     {inputs}
-                    <Button size="sm" onClick={settings.addDetail}>Add Detail</Button>
-                </ListGroup>
-            </InputGroup>
-            <InputGroup>
-                <Button size="md" onClick={settings.addHome}>Add House</Button>
-                <Button size="md" onClick={settings.removeHome}>Remove Selected House</Button>
-            </InputGroup>
+                    <button className="btn btn-primary" onClick={settings.addDetail}>Add Detail</button>
+                </ul>
+            </div>
+            <div className="input-group" size="sm">
+                <button className="btn btn-primary" onClick={settings.addHome}>Add House</button>
+                <button className="btn btn-primary" onClick={settings.removeHome}>Remove Selected House</button>
+            </div>
         </>
     );
 }

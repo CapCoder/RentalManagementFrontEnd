@@ -5,13 +5,13 @@ const cardList = (props) =>{
     
     const cards = props.cardDetails.map((home, index) =>{
         let id = home.ID;
-        return(<li onClick={(e) => props.switch(id,e)} key={id} className={'cardListItem'}><Card cardTitle={home.title} cardItems={home.houseDetails}/></li>);
+        return(<Card key={id} cardTitle={home.title} cardItems={home.houseDetails}/>);
     });
 
     return(
-        <ul className={'cardList'}>
+        <div className="card-deck">
             {cards}
-        </ul>
+        </div>
     );
 }
 

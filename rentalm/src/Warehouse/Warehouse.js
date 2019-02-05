@@ -9,12 +9,14 @@ class Warehouse extends Component{
             {
                 ID: 0,
                 title:'Test 1',
-                houseDetails: ["rent1", "test1"]
+                houseDetails: ["rent1", "test1"],
+                policies: [false, false, false, false]
             },
             {
                 ID: 1,
                 title: 'Test 2',
-                houseDetails: ["rent2", "test2"]
+                houseDetails: ["rent2", "test2"],
+                policies: [false, false, false, false]
             }
         ],
         selectedHome: 0

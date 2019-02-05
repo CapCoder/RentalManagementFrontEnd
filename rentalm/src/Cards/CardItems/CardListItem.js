@@ -1,7 +1,7 @@
 import React from 'react';
 
 const cardListItem = (props) =>(
-    <li>{props.children}</li>
+    <li className="list-group-item">{props.children}</li>
 );
 
 export default cardListItem;

@@ -1,20 +1,24 @@
 import React from 'react';
-import {Card, CardBody, CardImg, CardTitle} from 'reactstrap'; 
 import CardList from './CardItems/DetailLIst';
-import CardTitleContent from '../Cards/Title/Title';
+import CardTiles from '../Cards/CardTiles/CardTile';
 
 const propCards = (props) =>{
 
-    const style = ['cards', 'text-left'];
     
+    const style = {
+        width: '18rem',
+        margin: 'auto',
+    }
+
     return(
-        <Card className={style.join(' ')}>
-            <CardTitle><CardTitleContent>{props.cardTitle}</CardTitleContent></CardTitle>
-            <CardImg top width="100%" src="house.jpg"/>
-            <CardBody>
+        <div className={'card'} style={style}>
+            <h5 className="card-title">{props.cardTitle}</h5>
+            <img src="house.jpg" className="card-img-top" />
+            <div className={'card-body'}>
+                <CardTiles />
                 <CardList cardItems={props.cardItems}/>
-            </CardBody>
-        </Card>
+            </div>
+        </div>
     );
 }
 
