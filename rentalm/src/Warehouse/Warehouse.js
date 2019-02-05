@@ -22,31 +22,36 @@ class Warehouse extends Component{
 
     
     editDetailHandler = (e) =>{
-        let newState = [...this.state.homes];
         let selected = this.state.selectedHome;
-        newState[selected].houseDetails[e.target.name] = [e.target.value];
-        this.setState({houseDetails:newState});
-        console.log(this.state);
+        let temp = this.state.homes;
+        temp[selected].houseDetails[e.target.name] = e.target.value;
+        this.setState({homes: temp});
     }
 
     editTitleHandler = (e) =>{
-        let newState = [...this.state.homes];
         let selected = this.state.selectedHome;
-        newState[selected].title = e.target.value;
-        this.setState({houseDetails:newState});
+        let temp = this.state.homes;
+        temp[selected].title = e.target.value;
+        this.setState({homes: temp});
     }
 
     addDetailHandler = () =>{
-        let newState = [...this.state.homes];
-        newState[this.state.selectedHome].houseDetails.push('');
-        this.setState({houseDetails: newState});
+        let temp = this.state.homes;
+        temp[this.state.selectedHome].houseDetails.push('');
+        this.setState({homes: temp});
     }
 
     addHouseHandler = () =>{
         let newState = [...this.state.homes];
         newState.push({ID: (newState.length), title:"Something", houseDetails: ['Fill it out']});
         this.setState({homes: newState});
-        
+    }
+
+    removeHouseHandler = () =>{
+        let newState = [...this.state.homes];
+        let itemPos = this.state.selectedHome;
+        let filtered = newState.slice(0,itemPos).concat(newState.slice(itemPos +1, newState.length));
+        this.setState({homes: filtered, selectedHome: 0});
     }
 
     setSelectedHome = (id) =>{
@@ -60,7 +65,8 @@ class Warehouse extends Component{
             editDetail: this.editDetailHandler,
             details: this.state.homes,
             editTitle: this.editTitleHandler,
-            addHome: this.addHouseHandler
+            addHome: this.addHouseHandler,
+            removeHome: this.removeHouseHandler
         };
 
         return(

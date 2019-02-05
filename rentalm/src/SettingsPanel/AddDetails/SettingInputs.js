@@ -3,11 +3,21 @@ import {Button, InputGroup, ListGroup, ListGroupItem, Input} from 'reactstrap';
 
 const inputList = (props) =>{
     let settings=props.selectedAdd;
-    console.log(settings.details[settings.selected]);
+    let selectedIndex;
+    // Setting index to house based on the selected ID
+    for(let i=0; i<settings.details.length; i++){
+        if(settings.details[i].ID == settings.selected){
+            selectedIndex = i;
+        }
+    }
+
+    console.log(selectedIndex);
+
     const inputs = settings.details[settings.selected].houseDetails.map((detail, index) =>{
+        
         return(
             // Check use of key here
-            <ListGroupItem key={index}><Input type="text" name={settings.details[settings.selected].houseDetails.indexOf(detail)} value={detail} onChange={settings.editDetail} /></ListGroupItem>
+            <ListGroupItem key={index}><Input type="text" name={settings.details[selectedIndex].houseDetails.indexOf(detail)} value={detail} onChange={settings.editDetail} /></ListGroupItem>
         );
     });
     
@@ -27,7 +37,7 @@ const inputList = (props) =>{
             </InputGroup>
             <InputGroup>
                 <Button size="md" onClick={settings.addHome}>Add House</Button>
-                <Button size="md">Remove Selected House</Button>
+                <Button size="md" onClick={settings.removeHome}>Remove Selected House</Button>
             </InputGroup>
         </>
     );
