@@ -10,13 +10,17 @@ class Warehouse extends Component{
                 ID: 0,
                 title:'Test 1',
                 houseDetails: ["rent1", "test1"],
-                policies: [false, false, false, false, false]
+                policies: [false, false, false, false, false],
+                description: "This is a descripton of the house",
+                images: []
             },
             {
                 ID: 1,
                 title: 'Test 2',
                 houseDetails: ["rent2", "test2"],
-                policies: [false, false, false, false, false]
+                policies: [false, false, false, false, false],
+                description: "This is another description",
+                images:[]
             }
         ],
         selectedHome: 0
@@ -57,20 +61,20 @@ class Warehouse extends Component{
     }
 
     togglePoliciesHandler = (pos) =>{
-        console.log("this ran");
-        let temp = this.state.homes[this.state.selectedHome].policies;
-        switch(temp[pos]){
+        let temp = this.state.homes;
+        let selected = this.state.selectedHome;
+        switch(temp[selected].policies[pos]){
             case true:
-                temp[pos] = false;
+                temp[selected].policies[pos] = false;
                 break;
             case false:
-                temp[pos] = null;
+                temp[selected].policies[pos] = null;
                 break;
             case null:
-                temp[pos] = true;
+                temp[selected].policies[pos] = true;
                 break;
         }
-        this.setState({policies: temp});
+        this.setState({homes: temp});
     }
 
     setSelectedHome = (id) =>{
