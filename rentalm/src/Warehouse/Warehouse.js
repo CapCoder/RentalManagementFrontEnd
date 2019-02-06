@@ -10,13 +10,13 @@ class Warehouse extends Component{
                 ID: 0,
                 title:'Test 1',
                 houseDetails: ["rent1", "test1"],
-                policies: [false, false, false, false]
+                policies: [false, false, false, false, false]
             },
             {
                 ID: 1,
                 title: 'Test 2',
                 houseDetails: ["rent2", "test2"],
-                policies: [false, false, false, false]
+                policies: [false, false, false, false, false]
             }
         ],
         selectedHome: 0
@@ -56,8 +56,24 @@ class Warehouse extends Component{
         this.setState({homes: filtered, selectedHome: 0});
     }
 
+    togglePoliciesHandler = (pos) =>{
+        console.log("this ran");
+        let temp = this.state.homes[this.state.selectedHome].policies;
+        switch(temp[pos]){
+            case true:
+                temp[pos] = false;
+                break;
+            case false:
+                temp[pos] = null;
+                break;
+            case null:
+                temp[pos] = true;
+                break;
+        }
+        this.setState({policies: temp});
+    }
+
     setSelectedHome = (id) =>{
-        console.log("running selectedHome");
         this.setState({selectedHome: id});
     }
 
@@ -69,7 +85,8 @@ class Warehouse extends Component{
             details: this.state.homes,
             editTitle: this.editTitleHandler,
             addHome: this.addHouseHandler,
-            removeHome: this.removeHouseHandler
+            removeHome: this.removeHouseHandler,
+            policyHandler: this.togglePoliciesHandler
         };
 
         return(
