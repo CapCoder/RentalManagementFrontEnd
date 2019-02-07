@@ -10,8 +10,13 @@ const propCards = (props) =>{
         margin: 'auto',
     }
 
+    const cardClasses = ["card"];
+    if(props.selected == props.homeID){
+        cardClasses.push("bg-success");
+    }
+
     return(
-        <div className="card" style={style} onClick={(e)=> props.setSelection(props.homeID,e)}>
+        <div className={cardClasses.join(' ')} style={style} onClick={(e)=> props.setSelection(props.homeID,e)}>
             <h5 className="card-title">{props.cardTitle}</h5>
             <img src="house.jpg" className="card-img-top" alt="Main" />
             <div className='card-body'>

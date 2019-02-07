@@ -5,7 +5,7 @@ const cardList = (props) =>{
     
     const cards = props.cardDetails.map((home, index) =>{
         let id = home.ID;
-        return(<Card key={id} setSelection={props.switch} homeID={id} policies={home.policies} cardTitle={home.title} cardItems={home.houseDetails}/>);
+        return(<Card key={id} setSelection={props.switch} selected={props.selected} homeID={id} policies={home.policies} cardTitle={home.title} cardItems={home.houseDetails}/>);
     });
 
     return(

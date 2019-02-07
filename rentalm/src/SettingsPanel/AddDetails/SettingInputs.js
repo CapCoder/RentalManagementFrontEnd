@@ -87,18 +87,22 @@ const inputList = (props) =>{
     
     return(
         <>
-            <div className="input-group" size="sm">
-                <h3>Title:</h3>
+            <div className="form-group">
+                <label>Title:</label>
                 <input type="text" className="form-control" value={settings.details[selectedIndex].title} onChange={(e) => settings.editTitle(selectedIndex,e)} />
             </div>
-            <div className="input-group" size="sm">
-                <h3>Details:</h3>
+            <div className="form-group">
+                <label>Details:</label>
                 <ul className="list-group">
                     {details}
                     <button className="btn btn-primary" onClick={settings.addDetail}>Add Detail</button>
                 </ul>
             </div>
-            <div className="input-group" size="sm">
+            <div className="form-group">
+                <label>House Description:</label>
+                <textarea class="from-control" rows="3">{settings.details[selectedIndex].description}</textarea>
+            </div>
+            <div className="form-group">
                 <button className="btn btn-primary" onClick={settings.addHome}>Add House</button>
                 <button className="btn btn-primary" onClick={settings.removeHome}>Remove Selected House</button>
             </div>

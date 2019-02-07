@@ -49,7 +49,7 @@ class Warehouse extends Component{
 
     addHouseHandler = () =>{
         let newState = [...this.state.homes];
-        newState.push({ID: (newState.length), title:"Something", houseDetails: ['Fill it out']});
+        newState.push({ID: (newState.length), title:"Something", houseDetails: ['Fill it out'], policies: [false, false, false, false, false]});
         this.setState({homes: newState});
     }
 
@@ -96,7 +96,7 @@ class Warehouse extends Component{
         return(
             <>
                 <div className='cardViewport'>
-                    <ViewPort switchHouse={this.setSelectedHome} cardDetails={this.state.homes}/>
+                    <ViewPort switchHouse={this.setSelectedHome} selected={this.state.selectedHome} cardDetails={this.state.homes}/>
                 </div>
                 <SettingsPanel properties={settingsOb} />
             </>
