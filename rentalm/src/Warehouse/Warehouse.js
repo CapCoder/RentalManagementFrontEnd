@@ -81,6 +81,15 @@ class Warehouse extends Component{
         this.setState({selectedHome: id});
     }
 
+    imageHandler = (e) =>{
+        let temp = this.state.homes;
+        let imagesArr = [...e.target.files];
+        imagesArr.forEach(image => {
+            temp[this.state.selectedHome].images.push(URL.createObjectURL(image));
+        });
+        this.setState({homes: temp});
+    }
+
     render(){
         let settingsOb = {
             selected: this.state.selectedHome,
@@ -90,7 +99,8 @@ class Warehouse extends Component{
             editTitle: this.editTitleHandler,
             addHome: this.addHouseHandler,
             removeHome: this.removeHouseHandler,
-            policyHandler: this.togglePoliciesHandler
+            policyHandler: this.togglePoliciesHandler,
+            imageHandler: this.imageHandler
         };
 
         return(

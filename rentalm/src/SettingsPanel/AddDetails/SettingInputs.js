@@ -12,17 +12,22 @@ const inputList = (props) =>{
     }
 
     const details = settings.details[selectedIndex].houseDetails.map((detail, index) =>{
-        
         return(
             // Check use of key here
             <li className="list-group-item" key={index}><input className="form-control" type="text" name={settings.details[selectedIndex].houseDetails.indexOf(detail)} value={detail} onChange={settings.editDetail} /></li>
         );
-    });
+    });    
     
-    const policies = () =>{
-        let arrayTemp = settings.details[selectedIndex].policies;
-        let buttonContainer=[];
+    const purgetoryImages = settings.details[selectedIndex].images.map((image) =>{
+        return(
+            <li className="list-group-item" key={image}><img src={image} width="100" height="100" alt="to upload" /></li>
+        );
+    });
 
+    const policies = () =>{
+        let buttonContainer=[];
+        let arrayTemp = settings.details[selectedIndex].policies;
+    
         for(let i=0; i < arrayTemp.length; i++){
             switch(i){
                 case 0:
@@ -83,8 +88,8 @@ const inputList = (props) =>{
             }
         }
         return(buttonContainer);
-    };
-    
+    }
+
     return(
         <>
             <div className="form-group">
@@ -100,17 +105,23 @@ const inputList = (props) =>{
             </div>
             <div className="form-group">
                 <label>House Description:</label>
-                <textarea class="from-control" rows="3">{settings.details[selectedIndex].description}</textarea>
+                <textarea className="from-control" rows="3" defaultValue={settings.details[selectedIndex].description}></textarea>
             </div>
             <div className="form-group">
                 <button className="btn btn-primary" onClick={settings.addHome}>Add House</button>
                 <button className="btn btn-primary" onClick={settings.removeHome}>Remove Selected House</button>
             </div>
-            <div className="input-group" size="sm">
-                {policies()}
+            {policies()}
+            <div className="form-group">
+                <label>file input:</label>
+                <input type="file" className="form-control-file" multiple onChange={(e) => settings.imageHandler(e)}/>
+                <ul className="list-group">
+                    {purgetoryImages}
+                </ul>
             </div>
         </>
     );
-}
 
+}
 export default inputList;
+
